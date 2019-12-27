@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from newsapi import NewsApiClient 
-import settings
+from django.conf import settings
 # Create your views here.
 
 # returns  a list of num news objects (title, description, Url, ImageUrl)
@@ -39,7 +39,7 @@ Based on popular bets
 
 def headings(request):
 
-    newsapi = NewsApiClient(api_key=setting.NEW_API_KEY)
+    newsapi = NewsApiClient(api_key=settings.NEW_API_KEY)
     nfl_headlines = newsapi.get_top_headlines(q='',
                                           sources='nfl-news',
                                           language='en')
