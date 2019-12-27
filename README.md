@@ -16,7 +16,7 @@
 
 The Betting Platform's front-page is a newsfeed. It's based on popular bets, top news from ESPN NEWS API, popular predicition articles, and the sports categories. (Soccer, Football, Hockey, Basketball) 
 
-![](newsfeed.gif {width=80px height=45px})
+![](newsfeed.gif)
 
 
 **Please feel free to play with code, add new features, and learn from existing code**
