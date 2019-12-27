@@ -1,0 +1,48 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<strong style="color:green;"> Bank Account: {{player.money}} Tokens</strong>
+<br>
+<br>
+
+<div class="form">
+  <div class="bet">
+    
+    <strong style="font-size:22px;color:white; ">&nbsp{{match.home_team}} vs {{match.away_team}} | </strong>
+    <strong style="font-size:16px; color:white;"> {{ match.date }}</strong>
+    <!-- Home Always Comes First -->
+    
+        <br>
+        <strong style="color:white;"> &nbsp Home:</strong> {{ match.home_odds }} <br>
+        <strong style="color:white;"> &nbsp Away:</strong> {{ match.away_odds }} <br>
+        <strong style="color:white;"> &nbsp Draw:</strong> {{ match.draw_odds }}
+    
+   
+    <form action="" method="POST">
+     {% csrf_token %}
+        <strong style="color:white;"> &nbspTeam: </strong>
+        {{form.bet_team}}
+      
+ 
+        <strong style="color:white;"> Amount: </strong> 
+        {{form.bet_amt}}
+        <br>
+        <br>
+        &nbsp
+        <input type="submit" value="BET">
+    </form>
+    </div>
+</div>
+
+{% endblock %}
+
+<div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sports Groups
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    {% for group in group_list %}         
+        <a class="dropdown-item" href="{% url 'group' group.id %}">{{ group.name }} </a>
+    {% endfor %} 
+  </div>
+</div>

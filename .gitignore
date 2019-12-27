@@ -1,0 +1,14 @@
+# Django #
+*.pyc
+__pycache__
+db.sqlite3
+media
+
+Betting_Site/settings.py 
+*/migrations/*
+Betting_Site/.env
+
+myenv/*
+
+*.env
+.env

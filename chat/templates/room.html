@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="float-left">
+          <h2 class="title">{{room.name}}</h2>
+          <p class="subtitle">
+            {{room.description}}
+          </p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+          <section>
+            <div id="messages"></div>
+            <form id="message-form">
+              <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                  <textarea class="textarea" id="message-input"placeholder="Your message here" rows="3" autofocus>
+                  </textarea>
+                </div>
+              </div>
+              <button type="submit" class="button">Send</button>
+            </form>
+          </section>
+    </div>
+
+  <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+  <script src="https://media.twiliocdn.com/sdk/js/chat/v2.0/twilio-chat.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+  <script src="{% static "chat/scripts/rooms.js" %}"></script>
+{% endblock %}

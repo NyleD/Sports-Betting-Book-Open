@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %} <!-- inherit -->
+{% block content %}
+    <article class="media content-section">
+        <img src="{{ object.author.profile.image.url }}" class="rounded-circle article-img">
+        <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.author }}</a>
+            {% if object.author.profile.verified is True %}
+                <small class="font-weight-bold">
+                <span style="color: #61D02D">Verified User</span>
+                </small>
+            {% else %}  
+                <small class="font-weight-bold">
+                <span style="color: #C0270D">Non-Verified User</span>
+                </small>
+            {% endif %}
+                <br>
+            <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+        </div>
+        <h2 class="article-title">{{ object.title }}</h2>
+        <p class="article-content">{{ object.content }}</p>
+        </div>
+    </article>
+{% endblock content %}
+
+<!--  default of class based views to use object as the context name passed  -->

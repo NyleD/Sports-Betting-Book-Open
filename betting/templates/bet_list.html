@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+<!-- OLD STUFF-->
+
+{% for instance in object_list%}
+    <p> {{ instance.gameDate }} {{ instance.gameTime }} <br>
+     {{ instance.homeTeam }} : {{ instance.homeOdds }} <br>
+     vs <br>
+     {{ instance.awayTeam }} : {{ instance.awayOdds }} <br>
+     Draw : {{ instance.drawOdds }} 
+    </p>
+{% endfor %}
+
+{% endblock content %}

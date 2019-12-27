@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sports Betting Book</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/font.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/li-scroller.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery.fancybox.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+<!--[if lt IE 9]>
+<script src="assets/js/html5shiv.min.js"></script>
+<script src="assets/js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+  <header id="header">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="header_top">
+          <div class="header_top">
+            <ul class="top_nav">
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'groups' %}">New Bet</a></li>
+                <li><a href="{% url 'mybets' %}">My Bets</a></li>
+                <li><a href="{% url 'blog-home' %}">Chat Room</a></li>
+                <li><a href="{% url 'chat-rooms' %}">Rooms</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+              {% endif %} 
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="header_bottom">
+          <div><a class="logo"><img src="{% static 'images/title.png' %}" alt=""></a></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="newsSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="latest_newsarea"> <span>Latest Betting News</span>
+          <ul id="ticker01" class="news_sticker">
+            {% for headline in oddsList %}
+              <li><a href="{{ headline.url }}"><img src="{{ headline.imgUrl }}" alt="Games">{{ headline.title }}</a></li>
+            {% endfor %}
+          </ul>
+      </div>
+    </div>
+  </section>
+  <section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+          {% for article in topList %}
+          <div class="single_iteam"> <a href="{{ article.url }}"> <img src="{{ article.imgUrl }}" alt="Sports"></a>
+            <div class="slider_article">
+              <h2><a class="slider_tittle" href="{{ article.url }}">{{  article.title  }}</a></h2>
+              <p>{{  article.descrip  }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="single_post_content">
+            <h2><span>Soccer</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav  wow fadeInDown">
+                <li>
+                  <figure class="bsbig_fig"> <a href="{{ soccerList.0.url }}" class="featured_img"> <img alt="Soccer" src="{{ soccerList.0.imgUrl }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{{ soccerList.0.url }}">{{ soccerList.0.title }}</a> </figcaption>
+                    <p>{{ soccerList.0.descrip }}</p>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                {% for article in soccerList %}
+                  {% if article.title != soccerList.0.title%}
+                    <li>
+                      <div class="media wow fadeInDown"> <a href="{{ article.url }}" class="media-left"> <img alt="Soccer" src="{{ article.imgUrl }}"> </a>
+                        <div class="media-body"> <a href="{{ article.url }}" class="catg_title">{{ article.title }}</a> </div>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="fashion_technology_area">
+            <div class="fashion">
+              <div class="single_post_content">
+                <h2><span>Hockey</span></h2>
+                <ul class="business_catgnav wow fadeInDown">
+                  <li>
+                    <figure class="bsbig_fig"> <a href="{{  nhlList.0.url }}" class="featured_img"> <img alt="Hockey" src="{{ nhlList.0.imgUrl }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="{{  nhlList.0.url }}">{{  nhlList.0.title }}</a> </figcaption>
+                      <p>{{ nhlList.0.descrip }}</p>
+                    </figure>
+                  </li>
+                </ul>
+                <ul class="spost_nav">
+                {% for article in nhlList %}
+                  {% if article.title != nhlList.0.title%}
+                    <li>
+                      <div class="media wow fadeInDown"> <a href="{{  article.url }}" class="media-left"> <img alt="Hockey" src="{{  article.imgUrl }}"> </a>
+                        <div class="media-body"> <a href="{{  article.url }}" class="catg_title">{{  article.title }}</a> </div>
+                      </div>
+                  </li>
+                  {% endif %}
+                {% endfor %}  
+                </ul>
+              </div>
+            </div>
+            <div class="technology">
+              <div class="single_post_content">
+                <h2><span>Football</span></h2>
+                <ul class="business_catgnav">
+                  <li>
+                    <figure class="bsbig_fig wow fadeInDown"> <a href="{{  nflList.0.url }}" class="featured_img"> <img alt="Football" src="{{  nflList.0.imgUrl }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="pages/single_page.html">{{  nflList.0.title }}</a> </figcaption>
+                      <p>{{  nflList.0.descrip }}</p>
+                    </figure>
+                  </li>
+                </ul>
+                <ul class="spost_nav">
+                {% for article in nflList %}
+                  {% if article.title != nflList.0.title %}
+                    <li>
+                      <div class="media wow fadeInDown"> <a href="{{  article.url }}" class="media-left"> <img alt="Football" src="{{  article.imgUrl }}"> </a>
+                        <div class="media-body"> <a href="{{ article.url }}" class="catg_title">{{  article.title }}</a> </div>
+                      </div>
+                    </li>
+                  {% endif %}  
+                {% endfor %}  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="single_post_content">
+            <h2><span>BasketBall</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav">
+                <li>
+                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{ nbaList.0.url }}"> <img src="{{ nbaList.0.imgUrl }}" alt=""> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{{ nbaList.0.url }}">{{ nbaList.0.title }}</a> </figcaption>
+                    <p>{{ nbaList.0.descrip }}</p>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                {% for article in nbaList %}
+                  {% if article.title != nbaList.0.title %}
+                    <li>
+                      <div class="media wow fadeInDown"> <a href="{{ article.url }}" class="media-left"> <img alt="" src="{{ article.imgUrl }}"> </a>
+                        <div class="media-body"> <a href="p{{ article.url }}" class="catg_title">{{ article.title }}</a> </div>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script> 
+<script src="{% static 'assets/js/wow.min.js' %}"></script> 
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script> 
+<script src="{% static 'assets/js/slick.min.js' %}"></script> 
+<script src="{% static 'assets/js/jquery.li-scroller.1.0.js' %}"></script> 
+<script src="{% static 'assets/js/jquery.newsTicker.min.js' %}"></script> 
+<script src="{% static 'assets/js/jquery.fancybox.pack.js' %}"></script> 
+<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>

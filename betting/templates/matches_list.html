@@ -1,0 +1,29 @@
+
+
+
+<!-- Need to add row-->
+
+{% load static %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+
+<div style="max-width:100%;" class="row">
+{% for match in matches %}
+
+<a href="{% url 'betmatch' match.id %}" class="tile green">
+<div class="card">
+        
+        <div class="match">
+            <b>{{ match.home_team }} vs {{ match.away_team }}</b>
+            <p><font face="arial" size=""> Home Win: {{ match.home_odds }} <br>
+                Draw: {{ match.draw_odds }} <br>
+                Away Win: {{ match.away_odds }} </font></p>
+        </div>   
+</div>
+ </a>
+ {% endfor %}
+</div>
+
+{% endblock %}

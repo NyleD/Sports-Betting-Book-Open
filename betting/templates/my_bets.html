@@ -1,0 +1,51 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+
+
+<div class="rcorners1">
+    <div class="inner"> {{ player.money }} Tokens </div>
+</div>
+<br>
+
+    <table border="2" class="greenTable">
+    <thead>
+        <tr>
+            <th>Match</th>
+            <th>Score</th>
+            <th>Bet On</th>
+            <th>Bet Result</th>
+            <th>Odd</th>
+            <th>Bet Amount</th>
+            <th>Match Status</th>
+            <th>Date/Time</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+        <td colspan="8">
+        <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
+        </td>
+        </tr>
+        </tfoot>
+        <tbody>
+        {% for bet in bets %}
+        <tr>
+            <td> {{ bet.match.home_team}} vs {{ bet.match.away_team}} </td>
+            <td> {{ bet.match.goals_home }} - {{ bet.match.goals_away }} </td>
+            <td> {{bet.bet_team}} </td>
+            <td> {{bet.bet_result}} </td>
+            <td> {{bet.bet_odd}} </td>
+            <td> {{ bet.bet_amt }} Tokens </td>
+            <td> {{ bet.match.status}} </td>
+            <td> {{ bet.match.date}} / <br> {{ bet.match.time}} </td>
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<a href="{% url 'groups' %}">New Bet</a> <br>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
+ <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+<br>
+ <!-- Add A Verify Button -->
+ <a href="{% url 'user-verify-face' %}" class="btn btn-info" role="button">Verify Face</a>
+
+
+ <!-- Might Need A JS File with static -->
+<script src="{% static 'webcam.js' %}"></script>
+
+{% endblock content%}

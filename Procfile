@@ -1,0 +1,1 @@
+web: gunicorn Betting_Site.wsgi --log-file -
