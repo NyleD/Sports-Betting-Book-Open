@@ -1,4 +1,4 @@
- Open Source Betting Platform
+# Open Source Betting Platform
 **Selected prototyped parts of the Sports Betting Book platform are currently open sourced**
 <br/>
 <br/>
@@ -13,6 +13,8 @@
 - Twilio
 - JQuery
 ## Demo
+
+The Betting Platform's front-page is a newsfeed. It's based on popular bets, top news from ESPN NEWS API, popular predicition articles, and the sports categories. (Soccer, Football, Hockey, Basketball) 
 
 ![](newsfeed.gif)
 
