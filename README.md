@@ -30,7 +30,7 @@ You might've noticed that the Manchester vs Newcastle game was live, all Odds ge
 
 All matches are updated every hour with Celery, using the THESPORTSDB API https://www.thesportsdb.com/api/, which is free! When betting, matches automatically are removed from selection once they go live and new ones take thier place. Max 10 are displayed. 
 
-![](CompletedGames.png)   ![](NewGames.png)
+![](Completed Games.png)   ![](NewGames.png)
 
 Players also get to chat in rooms. There is one room per group seen 
 
