@@ -32,7 +32,21 @@ All matches are updated every hour with Celery, using the THESPORTSDB API https:
 
 '''Smaller Images'''
 
-Players also get to chat in rooms. There is one room per group seen 
+Players also get to chat in rooms. There is one room per group seen
+
+![](chat.gif)
+
+Players also get a personal profile with thier information. We have also added a cool face-verfication feature. 
+
+![](profile.gif)
+![](face_verification.gif)
+![](face_verification.png)
+
+Authentication
+
+![](authenticated.gif)
+
+
 
 
 **Please feel free to play with code, add new features, and learn from existing code**
