@@ -14,17 +14,15 @@
 - JQuery
 ## Demo
 
-The Betting Platform's front-page is a newsfeed. It's based on popular bets, top news from ESPN NEWS API, popular predicition articles, and sports categories. (Soccer, Football, Hockey, Basketball) 
+The Betting Platform's front-page is a newsfeed. It's based on popular bets, top news from ESPN NEWS API, popular predicition articles, and sport categories. (Soccer, Football, Hockey, Basketball) 
 
 ![](newsfeed.gif)
 
-
-
-You can bet from different sports groups and leagues within each group. Select a match, choose a team to bet on and amount of tokens you want to bet. Your bet will be added to your "My Bets Table". 
+You can bet on different sports and leagues. Select a match, choose a team to bet on and the amount of tokens you want to bet. Your bet will be added to your "My Bets Table". 
 
 ![](making_a_bet.gif)
 
-You might've noticed that the Manchester vs Newcastle game was live, all Odds get updated every 2 hours with Celery. This is provided by the ODDS API https://the-odds-api.com/liveapi/guides/v3/, 500 free requests a month. Based on bet outcomes, the table automatically updates, and user balances get updated. 
+You might've noticed that the Manchester vs Newcastle game was live, all Odds get updated every 2 hours with Celery. This is provided by the ODDS API https://the-odds-api.com/liveapi/guides/v3/, 500 free requests a month. Based on bet outcomes, the table automatically updates, and user balances also get updated. 
 
 ![](tablelivegame.png)   ![](tablecompleted.png)
 
@@ -33,11 +31,11 @@ All matches are updated every hour with Celery, using the THESPORTSDB API https:
 ![](CompletedGames.png) 
 ![](NewGames.png) 
 
-Players also get to chat in rooms. There is one room per group seen
+Players are authenticated to chat in selected rooms based on what type of sport groups they have bet on. We want to encourage chat amongst betters that are betting on common teams, like the english premier league. 
 
 ![](chat.gif)
 
-Players also get a personal profile with thier information. We have also added a cool face-verfication feature. 
+Players also get a personal profile with thier information. We have also added a face-verfication for security purposes, so that betters are who they say they are. This reduces the risk of invalid information for personal gain, and helps betters feel safe when talking with friends online. 
 
 ![](profile.gif)
 ![](face_verification.gif)
@@ -46,8 +44,6 @@ Players also get a personal profile with thier information. We have also added a
 Authentication
 
 ![](authenticated.gif)
-
-
 
 
 **Please feel free to play with code, add new features, and learn from existing code**
